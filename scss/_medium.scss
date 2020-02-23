@@ -1,0 +1,44 @@
+body {
+
+
+    #content-wrapper {
+        flex-flow: row nowrap;
+
+        header {
+            position: relative;
+            nav {
+
+                ul {
+                    flex-flow: column nowrap;
+
+                    li {
+                        .menu-item {
+                            // .flexy {
+                            //     display: flex;
+                            //     align-items: center;
+                            // }
+                        }
+                        margin: 13px 26px;
+
+                        i {
+                            color: $primaryColor;
+                        }
+                    }
+
+                    li#twiddler-logo {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        main {
+
+            section, section h1, section #feed, section #feed .twiddle {
+                border-left-width: $borderWidth;
+                border-right-width: $borderWidth;
+            }
+        }
+    }
+
+}

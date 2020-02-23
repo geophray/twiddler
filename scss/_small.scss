@@ -1,0 +1,103 @@
+body {
+    font-size: 18px;
+    width: 100%;
+    max-width: 860px;
+    margin: auto;
+    font-family: $bodyFontFamily;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $headerFontFamily;
+        color: $primaryColor;
+    }
+
+    #content-wrapper {
+        display: flex;
+        flex-flow: column-reverse nowrap;
+        justify-content: center;
+
+
+        header {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $white;
+
+            nav {
+                font-size: 1.5em;
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-evenly;
+
+                    li {
+                        margin: 15px;
+
+                        .menu-item {
+                            background-color: lightsalmon;
+                            border-radius: 50px;
+                            padding: 10px;
+                        }
+
+                        i {
+                            color: $primaryColor;
+                        }
+
+                        .menu-text {
+                            display: none;
+                            margin-left: 10px;
+                        }
+                    }
+
+                    li#twiddler-logo {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        main {
+            width: 100%;
+
+            section, section h1, section #new-twiddle, section #feed, section #feed .twiddle {
+                border: $borderWidth solid $borderColor;
+                border-collapse: collapse;
+                border-left-width: 0;
+                border-right-width: 0;
+            }
+            section {
+
+                h1 {
+                    margin: 0;
+                    padding: 15px;
+                    position: sticky;
+                    top: 0px;
+                    background: $white;
+
+                }
+                #new-twiddle {
+                    border-bottom-width: 10px;
+                    padding: 10px;
+                }
+                #feed {
+                    .twiddle {
+                        padding: 10px;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

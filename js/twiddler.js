@@ -8,18 +8,29 @@ $(document).ready(function () {
 
     // Load home feed when the home link or twiddler is clicked
     $("#home, #twiddler-logo").click(function () {
-        loadHomeFeed($feed);
+        loadHomeFeed();
+    });
+
+    // Load feed of an individual user when their username is clicked
+    $("span.user-name").click(function () {
+        var user = this.textContent;
+        var username = user.slice(1, user.length);
+        loadUserFeed(username);
+    });
+    
+    // Load feed of an individual user when their profile image is clicked
+    $("div.twiddle-image").click(function () {
+        var username = this.firstChild.title;
+        loadUserFeed(username);
     });
 
     // Load following feed when the home link is clicked
     $("#following").click(function () {
-        $("#following").addClass("active").siblings().removeClass("active");
-        $feed.html('');
-        stream = streams.users;
-        index = streams.users.length - 1;
-        generateTwiddleFeed(stream, index, $feed);
+        // loadFollowing();
     });
 });
+
+
 
 // Function for passing stream/index/feed parameters to generate unique feeds
 function generateTwiddleFeed(stream, index, feed) {
@@ -27,10 +38,10 @@ function generateTwiddleFeed(stream, index, feed) {
         // Create variables for generating a twiddle
         var twiddle = stream[index];
         var $twiddle = $('<div class="twiddle"></div>');
-        var $profileImg = $('<div class="twiddle-image"><img src="images/' + twiddle.user + '.png"></div>');
+        var $profileImg = $('<div class="twiddle-image"><img src="images/' + twiddle.user + '.png" title="' + twiddle.user + '"></div>');
         var $mainBody = $('<div class="twiddle-main"></div>');
         var $twiddleHeading = $('<div class="twiddle-head"></div>');
-        var $username = $('<span class="user-name">@<span class="user">' + twiddle.user + '</span></span>');
+        var $username = $('<span class="user-name">@' + twiddle.user + '</span>');
         var locale = "en-US";
         var options = {};
         var $publishDate = $('<span class="date-published">' + twiddle.created_at.toLocaleString(locale, options) + '</span>');
@@ -59,13 +70,24 @@ function generateTwiddleFeed(stream, index, feed) {
 }
 
 // Load the home feed
-function loadHomeFeed($feed) {
+function loadHomeFeed() {
+    var $feed = $('#feed');
+    $feed.html('');
     $("#home").addClass("active").siblings().removeClass("active");
     $("h1").text("Home");
-    $feed.html('');
     stream = streams.home;
-    index = streams.home.length - 1;
+    index = stream.length - 1;
     generateTwiddleFeed(stream, index, $feed);
 }
 
+// Load the individual users feed
+function loadUserFeed(username) {
+    var $feed = $('#feed');
+    $feed.html('');
+    $("ul").children().removeClass("active");
+    $("h1").text("@" + username);
+    stream = streams.users[username];
+    index = stream.length - 1;
+    generateTwiddleFeed(stream, index, $feed);
+}
 

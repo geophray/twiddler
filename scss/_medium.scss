@@ -12,17 +12,8 @@ body {
                     flex-flow: column nowrap;
 
                     li {
-                        .menu-item {
-                            // .flexy {
-                            //     display: flex;
-                            //     align-items: center;
-                            // }
-                        }
-                        margin: 13px 26px;
+                        margin: 15px 20px;
 
-                        i {
-                            color: $primaryColor;
-                        }
                     }
 
                     li#twiddler-logo {

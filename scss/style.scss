@@ -4,10 +4,10 @@
 
 @import "small";
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 600px) {
     @import "medium";
 } /* End of media query. */
 
-@media only screen and (min-width: 1028px) {
+@media only screen and (min-width: 992px) {
     @import "large";
 } /* End of media query. */

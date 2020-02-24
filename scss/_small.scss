@@ -104,15 +104,40 @@ body {
                 }
 
                 #new-twiddle {
+                    display: none;
                     border-bottom-width: 10px;
                     padding: 10px;
                 }
 
                 #feed {
                     .twiddle {
+                        display: flex;
                         padding: 10px;
                         width: 100%;
                         box-sizing: border-box;
+
+                        .twiddle-image {
+                            img {
+                                max-width: 15vw;
+                            }
+                        }
+
+                        .twiddle-main {
+                            margin-left: 20px;
+
+                            .twiddle-head {
+                                margin-bottom: 1em;
+
+                                .user-name {
+                                    font-weight: 600;
+                                }
+
+                                .date-published {
+                                    margin-left: 15px;
+                                    color: $lightGray;
+                                }
+                            }
+                        }
                     }
                 }
             }

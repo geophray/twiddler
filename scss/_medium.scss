@@ -6,7 +6,10 @@ body {
 
         header {
             position: relative;
+
             nav {
+                position: sticky;
+                top: 0px;
 
                 ul {
                     flex-flow: column nowrap;
@@ -25,7 +28,10 @@ body {
 
         main {
 
-            section, section h1, section #feed, section #feed .twiddle {
+            section,
+            section h1,
+            section #feed,
+            section #feed .twiddle {
                 border-left-width: $borderWidth;
                 border-right-width: $borderWidth;
             }
